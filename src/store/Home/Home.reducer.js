@@ -2,13 +2,14 @@ import { handleActions } from 'redux-actions';
 import actions from './Home.actions';
 
 const initialStore = {
-    data: {}
+    cityState: {}
 }
 export default handleActions({
     [actions.updateDummyData] :( state , { payload } )=>{
+        // console.log(payload.data)
        return{
            ...state,
-           data : payload
+           cityState : payload
        }
     }
 } , initialStore )
