@@ -21,3 +21,11 @@ export function* fetchDummyDataSaga() {
         console.log('there was an error in fetchDummyDataSaga:' , e )
     }
 }
+
+export function* submitSearchSaga() {
+    try{
+
+    }catch(e){
+        console.log('there was an error in submitSearchSaga:' , e)
+    }
+}

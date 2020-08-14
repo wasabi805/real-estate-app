@@ -3,7 +3,11 @@ import { nullSafeArr } from '../../helpers/arrayUtils';
 import { Input, Box, Button, Typography , FormControl } from '@material-ui/core';
 import homeStyles from './Home.styles'
 
-const Home = ({ cityStateResults })=>{
+const Home = ({
+        cityStateResults,
+        onChangeSearchField,
+        searchField,
+})=>{
     const test = nullSafeArr( cityStateResults ).slice(0,10)
     const classes = homeStyles();
     const { title, searchContainer, searchBox, searchButton } = classes
@@ -16,7 +20,15 @@ const Home = ({ cityStateResults })=>{
                 </Typography>
 
                  <FormControl className={searchContainer}>
-                     <Input className={ searchBox } label="find a home!" variant="outlined" />
+                     <Input
+                         className={ searchBox }
+                         label="find a home!"
+                         variant="outlined"
+                         onChange={ (e)=>{
+                             onChangeSearchField(e)
+                         }}
+                         value={ searchField }
+                     />
                      <Button className={ searchButton }
                              variant={'outlined'}
                              color={'secondary'}
