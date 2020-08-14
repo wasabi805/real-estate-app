@@ -17,8 +17,8 @@ router.get('/first-call', ( req, res ) =>{
     });
 
     realtor.headers({
-        "x-rapidapi-host": "realtor.p.rapidapi.com",
-        "x-rapidapi-key": "9e73432817mshfcefbb2378b9a57p13073ejsn69cfc0b56830",
+        "x-rapidapi-host": process.env.DB_ZILLOW,
+        "x-rapidapi-key": process.env.DB_ZILLOW_KEY,
         "useQueryString": true
     });
 
