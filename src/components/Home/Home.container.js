@@ -4,6 +4,7 @@ import { useSelector , useDispatch } from 'react-redux';
 import homeActions from '../../store/Home/Home.actions';
 import homeSelectors from '../../store/Home/Home.selectors'
 import { getNestedProperty } from "../../helpers/objectUtils";
+import { fetchSearchResultsSaga } from "../../store/Home/Home.sagas";
 
 import Home from './Home';
 const HomeContainer =()=>{
@@ -20,6 +21,10 @@ const HomeContainer =()=>{
         getNestedProperty( state , 'homeReducer' , 'searchField' )
     ))
 
+    const onSubmitSearch = ()=>{
+        dispatch({type: 'FETCH_SEARCH_RESULTS'})
+    }
+
     const cityStateResults = useSelector(( state )=>{
         return homeSelectors.cityStateSearch(state)
     })
@@ -29,7 +34,7 @@ const HomeContainer =()=>{
             cityStateResults={ cityStateResults }
             onChangeSearchField={ onChangeSearchField }
             searchField={ searchField }
-
+            onSubmitSearch={ onSubmitSearch }
         />
     )
 }

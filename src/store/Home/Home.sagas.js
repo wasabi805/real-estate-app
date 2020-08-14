@@ -22,10 +22,19 @@ export function* fetchDummyDataSaga() {
     }
 }
 
-export function* submitSearchSaga() {
-    try{
+export function* fetchSearchResultsSaga() {
+   try{
+       const response = yield call(()=>{
+           return axios.get( DUMMY_LIST ).then(
+               (res)=> {
+                   console.log( res )
+                   return res
+               } )
+       });
 
-    }catch(e){
-        console.log('there was an error in submitSearchSaga:' , e)
-    }
+
+
+   }catch(e){
+       console.log(e)
+   }
 }

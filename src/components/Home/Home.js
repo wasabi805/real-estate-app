@@ -7,6 +7,7 @@ const Home = ({
         cityStateResults,
         onChangeSearchField,
         searchField,
+        onSubmitSearch,
 })=>{
     const test = nullSafeArr( cityStateResults ).slice(0,10)
     const classes = homeStyles();
@@ -32,7 +33,7 @@ const Home = ({
                      <Button className={ searchButton }
                              variant={'outlined'}
                              color={'secondary'}
-                             onClick={()=>console.log('hello')}
+                             onClick={onSubmitSearch}
                      >
                          Start
                      </Button>
